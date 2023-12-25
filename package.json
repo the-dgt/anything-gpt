@@ -1,0 +1,40 @@
+{
+  "name": "anything-gpt",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run lint:fix && vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+		"publish": "npm version patch && npm publish"
+  },
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/the-dgt/anything-gpt.git"
+	},
+	"keywords": [
+		"ai",
+		"gpt",
+		"chatgpt",
+		"chatbot"
+	],
+	"author": {
+		"name": "Your Name",
+		"email": "your.email@example.com"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/the-dgt/anything-gpt/issues"
+	},
+	"homepage": "https://github.com/the-dgt/anything-gpt#readme",
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.8"
+  }
+}
