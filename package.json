@@ -1,14 +1,13 @@
 {
   "name": "anything-gpt",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "npm run lint:fix && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-		"publish": "npm version patch && npm publish"
+    "lint:fix": "eslint . --fix"
   },
   "main": "src/index.ts",
 	"repository": {
