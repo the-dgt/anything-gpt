@@ -10,6 +10,7 @@
     "lint:fix": "eslint . --fix",
 		"publish": "npm version patch && npm publish"
   },
+  "main": "src/index.ts",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/the-dgt/anything-gpt.git"
