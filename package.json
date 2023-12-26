@@ -9,32 +9,34 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "main": "src/index.ts",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/the-dgt/anything-gpt.git"
-	},
-	"keywords": [
-		"ai",
-		"gpt",
-		"chatgpt",
-		"chatbot"
-	],
-	"author": {
-		"name": "Your Name",
-		"email": "your.email@example.com"
-	},
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/the-dgt/anything-gpt/issues"
-	},
-	"homepage": "https://github.com/the-dgt/anything-gpt#readme",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/the-dgt/anything-gpt.git"
+  },
+  "keywords": [
+    "ai",
+    "gpt",
+    "chatgpt",
+    "chatbot"
+  ],
+  "author": {
+    "name": "Andrey Smirnov",
+    "email": "the@dgt.dev"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/the-dgt/anything-gpt/issues"
+  },
+  "homepage": "https://github.com/the-dgt/anything-gpt#readme",
   "devDependencies": {
     "@types/node": "^20.10.5",
-    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
     "@typescript-eslint/parser": "^6.15.0",
     "eslint": "^8.56.0",
     "typescript": "^5.3.3",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "vite-plugin-dts": "^3.7.0"
   }
 }
