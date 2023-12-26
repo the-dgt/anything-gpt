@@ -36,24 +36,52 @@ yarn install anything-gpt
 ## Usage
 
 ```ts
-import { core, useEnvironment, useOptions, chunkify } from "anything-gpt"
+import {
+  core,
+  chunkify,
+  useOptions,
+  useEnvironment,
+  ChatMessage, // everything is typed already,
+  CreateInstanceOptions, // but you can also import types 
+  AbstractEnvironmentContext, // to use them anywhere in your code
+} from "anything-gpt"
 
-const options = {
-	gpt: { model: "gpt-4" },
-	instance: { api_key: process.env.gpt_api_key_for_toaster },
+// Let's create GPT instance that would work for client-side application.
+// Our goal now is to just log the streamed response from ChatGPT's Completions Chat API
+// right to the browser's console. 
+
+// First step is to set the ChatGPT's Completions Chat API options
+// and provide OpenAI API key.
+const options: CreateInstanceOptions = {
+  gpt: {
+    // these fields are set by default, override them if needed.
+    // model: "gpt-3.5-turbo",
+    // temperature: 0.7,
+    // max_tokens: 4000,
+    // stream: true,
+    model: "gpt-4" 
+  }, 
+  instance: { 
+    api_key: localStorage.getItem("your_api_key_here") // you define where the key comes, depending on JS environment you work with.
+  }, 
 }
 
-const context = {
-	stream: async (response) => chunkify(response, process.stdout),
-	error: async (error) => error instanceof Response
-		? process.stderr.write(await error.text())
-		: process.stderr.write(error),
+// Second step is to set up the environment handlers,
+const browser: Partial<AbstractEnvironmentContext> = {
+  stream: async (response: Response) => // handle streamed response as is,
+    chunkify(response, (chunk: string) => console.log(chunk)), // or use built-in helper for getting message by chunk
 }
 
+// Last step is to create "gpt" function. 
+// "useEnvironment" and "useOptions" are simple adapter functions those just applied default values 
+// and returns 100% correct required interface
 const gpt = core.bind(
-	useEnvironment(context),
-	useOptions(options),
+  useEnvironment(browser), // create context for anything, say, for "game-engine", "cli-terminal", "cloudfalre-worker", etc.
+  useOptions(options),
 )
 
-const conversation = await gpt`enter you prompt. you can also pass ${anything} here`
+declare const anything: string | number | object | any[] | Function | Error // and so on
+
+// That's it! Use tagged "gpt" function as you want!
+const conversation: ChatMessage[] = await gpt`enter you prompt. you can also pass ${anything} here`
 ```
