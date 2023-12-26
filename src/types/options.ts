@@ -1,4 +1,4 @@
-import { type ChatCompletionOptions } from '@/types/gpt'
+import { type ChatCompletionOptions } from '@/types/gpt.ts'
 
 export interface InstanceOptions {
   api_key: string

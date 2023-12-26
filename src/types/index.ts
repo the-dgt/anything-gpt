@@ -1,3 +1,3 @@
-export * from "@/types/gpt.d"
-export * from "@/types/context.d"
-export * from "@/types/options.d"
+export * from "@/types/gpt.ts"
+export * from "@/types/context.ts"
+export * from "@/types/options.ts"

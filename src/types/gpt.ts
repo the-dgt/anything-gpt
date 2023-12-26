@@ -47,6 +47,6 @@ export interface StreamedChatCompletionResponse {
   }
 }
 
-interface ChatCompletionResponsePromise extends Response {
+export interface ChatCompletionResponsePromise extends Response {
   json: () => Promise<ChatCompletionResponse>
 }

@@ -1,4 +1,4 @@
-import {type ChatCompletionResponsePromise, type ChatMessage} from '@/types/gpt'
+import {type ChatCompletionResponsePromise, type ChatMessage} from '@/types/gpt.ts'
 
 export interface AbstractStorageContext {
   get: (key: string) => any
