@@ -61,8 +61,9 @@ const options: CreateInstanceOptions = {
     // stream: true,
     model: "gpt-4" 
   }, 
-  instance: { 
-    api_key: localStorage.getItem("your_api_key_here") // you define where the key comes, depending on JS environment you work with.
+  instance: {
+    // you define where the key comes from, depending on JS environment you work with.
+    api_key: localStorage.getItem("your_api_key_here")
   }, 
 }
 
