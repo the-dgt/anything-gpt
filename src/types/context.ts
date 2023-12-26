@@ -10,5 +10,5 @@ export interface AbstractEnvironmentContext {
   storage: AbstractStorageContext
   text: (response: ChatCompletionResponsePromise) => Promise<any>
   stream: (response: ChatCompletionResponsePromise) => Promise<any>
-  error: (error: Response | Error) => Promise<void>
+  error: (error: Response | Error) => Promise<any>
 }
