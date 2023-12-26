@@ -30,7 +30,7 @@ npm install anything-gpt
 ```
 or
 ```bash
-yarn install anything-gpt
+yarn add anything-gpt
 ```
 
 ## Usage
