@@ -1,12 +1,17 @@
-# anything-gpt
+<br>
 
+![anything-gpt](https://raw.githubusercontent.com/the-dgt/anything-gpt/master/public/logo.svg)
+
+[![npm version](https://badge.fury.io/js/anything-gpt.svg)](https://www.npmjs.com/package/anything-gpt)
+[![npm](https://img.shields.io/npm/dt/anything-gpt)](https://www.npmjs.com/package/anything-gpt)
 
 Creates GPT instance that just works everywhere JavaScript works 🤖
 
 No dependencies. <2KB. Try now.
 
------
 
+
+-----
 
 ## Introduction
 
