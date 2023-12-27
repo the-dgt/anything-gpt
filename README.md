@@ -4,6 +4,7 @@
 
 [![npm version](https://badge.fury.io/js/anything-gpt.svg)](https://www.npmjs.com/package/anything-gpt)
 [![npm](https://img.shields.io/npm/dt/anything-gpt)](https://www.npmjs.com/package/anything-gpt)
+[![size](https://img.shields.io/bundlephobia/min/anything-gpt)](https://www.npmjs.com/package/anything-gpt)
 
 Creates GPT instance that just works everywhere JavaScript works 🤖
 
