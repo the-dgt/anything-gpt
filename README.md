@@ -9,8 +9,6 @@ Creates GPT instance that just works everywhere JavaScript works 🤖
 
 No dependencies. <2KB. Try now.
 
-
-
 -----
 
 ## Introduction
@@ -18,6 +16,8 @@ No dependencies. <2KB. Try now.
 "anything-gpt" is a minimalist, highly portable JavaScript package designed to integrate OpenAI's GPT models into any JavaScript environment.
 
 From running in a browser's console to executing in AWS Lambda functions, "anything-gpt" stands out for its zero-dependency architecture and lightweight footprint, making it an ideal choice for a wide range of applications.
+
+For more information check out the [documentation](https://raw.githubusercontent.com/the-dgt/anything-gpt/master/public/docs/index.html).
 
 ## Features
 
