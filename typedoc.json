@@ -1,0 +1,6 @@
+{
+  "entryPoints": ["src"],
+  "out": "./public/docs",
+  "tsconfig": "./tsconfig.json",
+  "name": "anything-gpt"
+}
