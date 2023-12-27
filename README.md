@@ -17,7 +17,7 @@ No dependencies. <2KB. Try now.
 
 From running in a browser's console to executing in AWS Lambda functions, "anything-gpt" stands out for its zero-dependency architecture and lightweight footprint, making it an ideal choice for a wide range of applications.
 
-For more information check out the [documentation](https://raw.githubusercontent.com/the-dgt/anything-gpt/master/public/docs/index.html).
+For more information check out the [documentation](https://the-dgt.github.io/anything-gpt/).
 
 ## Features
 
