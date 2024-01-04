@@ -13,7 +13,7 @@ export const defaultInstanceOptions: InstanceOptions = {
 }
 
 export const useOptions = (
-	options?: { gpt: Partial<ChatCompletionOptions>, instance: Partial<InstanceOptions> }
+	options?: { gpt?: Partial<ChatCompletionOptions>, instance?: Partial<InstanceOptions> }
 ) => ({
 	gpt: {
 		...defaultGptOptions,

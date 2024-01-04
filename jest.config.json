@@ -1,0 +1,21 @@
+{
+  "testEnvironment": "node",
+  "transform": {
+    "^.+\\.(t|j)sx?$": ["ts-jest", {
+      "tsconfig": {
+        "allowJs": true,
+        "noImplicitAny": false,
+        "baseUrl": ".",
+        "paths": {
+          "@/*": ["./src/*"]
+        },
+        "esModuleInterop": true
+      }
+    }]
+  },
+  "testRegex": "./test/.*\\.test\\.ts$",
+  "collectCoverageFrom": ["src/**/*.{ts,js}"],
+  "moduleNameMapper": {
+    "^@/(.*)$": "<rootDir>/src/$1"
+  }
+}
