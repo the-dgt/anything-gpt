@@ -21,11 +21,7 @@ import dts from "vite-plugin-dts";
     },
     plugins: [
       dts({
-        exclude: [
-          "./src/types",
-          "./src/utils",
-          "./src/core.ts",
-        ]
+
       })
     ]
   })
