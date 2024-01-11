@@ -1,1 +1,1 @@
-export * from "@/utils/stream.ts"
+export { chunkify } from "@/utils/chunkify.ts"
