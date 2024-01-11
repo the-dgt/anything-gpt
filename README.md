@@ -41,24 +41,35 @@ yarn add anything-gpt
 
 ## Usage
 
+### 1. Use pre-build GPT instances
+
+The easiest and quickest way to just get the GPT instance and start working with it.
+
 ```ts
-import {
-  core,
-  chunkify,
-  useOptions,
-  useEnvironment,
-  ChatMessage, // everything is typed already,
-  CreateInstanceOptions, // but you can also import types 
-  AbstractEnvironmentContext, // to use them anywhere in your code
-} from "anything-gpt"
+import instance from "anything-gpt/use/gpt4" // gpt3.5 (free model) is also available
+
+const gpt = instance("YOUR_OPENAI_API_KEY")
+
+await gpt`Enter your prompt. You can pass ${anything} here.`        // 1. Enter the prompt
+  .then((stream) => stream((chunk: string) => console.log(chunk)))  // 2. Get GPT response by chunks
+  .then((messages: ChatMessage[]) => console.log(messages))         // 3. Get all messages as a result
+  .catch((error: Error) => console.error(error))                    // 4. Handle error
+```
+
+### 2. Use core package functions
+
+Need more flexibility? Then this way is yours.
+
+```ts
+import {core, chunkify, useOptions, useEnvironment, ChatMessage, CreateInstanceOptions, AbstractEnvironmentContext} from "anything-gpt"
 
 // Let's create GPT instance that would work for client-side application.
 // Our goal now is to just log the streamed response from ChatGPT's Completions Chat API
 // right to the browser's console. 
 
-// First step is to set the ChatGPT's Completions Chat API options
-// and provide OpenAI API key.
-const options: CreateInstanceOptions = {
+// Step 1.
+// Set OpenAI API Key and Chat Completions API options
+const options: CreateInstanceOptions = useOptions({
   gpt: {
     // these fields are set by default, override them if needed.
     // model: "gpt-3.5-turbo",
@@ -71,20 +82,27 @@ const options: CreateInstanceOptions = {
     // you define where the key comes from, depending on JS environment you work with.
     api_key: localStorage.getItem("your_api_key_here")
   }, 
-}
+})
 
-// Second step is to set up the environment handlers,
-const browser: Partial<AbstractEnvironmentContext> = {
+// Step 2.
+// Set up an environment for GPT:
+//  - What is the role of this bot.
+//  - How to handle text / stream response.
+//  - How to handle errors.
+const browser: Partial<AbstractEnvironmentContext> = useEnvironment({
+  state: [{
+    role: "system",
+    content: "What is this bot for? You can add custom instructions here."
+  }],
   stream: async (response: Response) => // handle streamed response as is,
     chunkify(response, (chunk: string) => console.log(chunk)), // or use built-in helper for getting message by chunk
-}
+  error: async (error: Error) => console.log(error)
+})
 
-// Last step is to create "gpt" function. 
-// "useEnvironment" and "useOptions" are simple adapter functions those just applied default values 
-// and returns 100% correct required interface
+// Last step is to create "gpt" function.
 const gpt = core.bind(
-  useEnvironment(browser), // create context for anything, say, for "game-engine", "cli-terminal", "cloudfalre-worker", etc.
-  useOptions(options),
+  browser, // create context for anything, say, for "game-engine", "cli-terminal", "cloudfalre-worker", etc.
+  options,
 )
 
 declare const anything: string | number | object | any[] | Function | Error // and so on
