@@ -2,7 +2,7 @@ import { type ChatCompletionResponsePromise } from "@/types/gpt"
 import { type CreateInstanceOptions } from "@/types/options"
 import { type AbstractEnvironmentContext } from "@/types/context"
 import {noResponseGuard, statusGuard} from "@/utils/guards.ts"
-import {useOptions} from "@/options.ts"
+import {useOptions} from "@/utils/options.ts"
 
 export async function core<T extends AbstractEnvironmentContext> (
 	this: T,
