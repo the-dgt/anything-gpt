@@ -1,0 +1,5 @@
+#0.1.10 - 2024-01-12
+
+- Change logic that parses and extract chunks from the response data string
+- Fix decoding the chunks: now emoji are supported
+- Add prebuild GPT instances (gpt3.5, gpt4)
