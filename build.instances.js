@@ -1,9 +1,8 @@
 import {build} from "vite";
-import path from "path";
-import dts from "vite-plugin-dts";
+import {execSync} from "child_process";
 
-["gpt3\.5", "gpt4"].forEach(
-  async (instance) => await build({
+for await (const instance of ["gpt3.5", "gpt4"]) {
+  await build({
     configFile: false,
     resolve: {
       alias: {
@@ -19,10 +18,10 @@ import dts from "vite-plugin-dts";
         fileName: () => `use/${instance}.js`
       }
     },
-    plugins: [
-      dts({
-
-      })
-    ]
   })
-)
+
+  // Generates dist/**/*.d.ts
+  execSync(`npx tsc --project tsconfig.build.json`, { stdio: 'inherit' });
+  // Replace path aliases with relative paths
+  execSync(`npx tsc-alias -p tsconfig.build.json`, { stdio: 'inherit' });
+}

@@ -12,12 +12,6 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "exports": {
-    ".": "./dist/index.js",
-    "./use/gpt3.5": "./dist/use/gpt3.5.js",
-    "./use/gpt4": "./dist/use/gpt4.js",
-    "./types": "./src/types/index.ts"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/the-dgt/anything-gpt.git"

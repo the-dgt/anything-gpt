@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/use/gpt3.5.ts",
+    "src/use/gpt4.ts",
+  ],
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "dist", // Specify the base output directory here
+    "noEmit": false,
+    "skipLibCheck": true,
+    "composite": false
+  }
+}
