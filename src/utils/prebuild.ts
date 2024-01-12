@@ -18,8 +18,8 @@ export const prebuild = (
 								chunkify(response, (chunk, done) =>
 									chunks.push(chunk) && done
 										? Object.assign(
-                  this.state!,
-                  {[this.state!.length - 1]: {role: "assistant", content: chunks.join("")}}
+                      this.state!,
+                      {[this.state!.length - 1]: {role: "assistant", content: chunks.join("")}}
 										)
 										: next(chunk)
 								))
