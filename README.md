@@ -46,7 +46,7 @@ yarn add anything-gpt
 The easiest and quickest way to just get the GPT instance and start working with it.
 
 ```ts
-import instance from "anything-gpt/use/gpt4" // gpt3.5 (free model) is also available
+import instance from "anything-gpt/dist/use/gpt4" // gpt3.5 (free model) is also available
 
 const gpt = instance("YOUR_OPENAI_API_KEY")
 
