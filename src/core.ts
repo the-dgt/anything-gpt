@@ -11,8 +11,7 @@ export async function core<T extends AbstractEnvironmentContext> (
 	...values: any[]
 ): Promise<any> {
 	if (!options.instance.api_key) {
-		console.error("ERROR: ChatGPT API KEY is undefined.")
-		return
+		throw new Error("ERROR: ChatGPT API KEY is undefined.")
 	}
 
 	const prompt = Array
