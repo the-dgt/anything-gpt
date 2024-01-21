@@ -7,3 +7,7 @@
 #0.1.12 - 2024-01-17
 
 - throw Error if token isn't set
+
+#0.1.13 - 2024-01-21
+
+- useEnvironment, bind "this" from "core" function

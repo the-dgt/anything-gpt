@@ -4,14 +4,14 @@ export const useEnvironment = (env: Partial<AbstractEnvironmentContext>): Abstra
 	return {
 		state: env.state || [],
 		storage: env.storage || new Map(),
-		text: async (response: ChatCompletionResponsePromise) => {
-			return env?.text?.(response)
+		text: async function (response: ChatCompletionResponsePromise) {
+			return env?.text?.call(this, response)
 		},
-		stream: async (response: ChatCompletionResponsePromise) => {
-			return env?.stream?.(response)
+		stream: async function (response: ChatCompletionResponsePromise) {
+			return env?.stream?.call(this, response)
 		},
-		error: async (response: Response | Error) => {
-			return env?.error?.(response)
+		error: async function (response: Response | Error) {
+			return env?.error?.call(this, response)
 		},
 	}
 }
